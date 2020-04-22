@@ -10,9 +10,6 @@ for row in race_result['results']:
     url = row['url']
     race_list.update({name:url})
 
-random_race = random.choice(list(race_list))
-print(random_race)
-
 #list classes
 classes = requests.get("https://www.dnd5eapi.co/api/classes/")
 class_result = json.loads(classes.text)
@@ -23,5 +20,17 @@ for row in class_result['results']:
     url = row['url']
     class_list.update({name:url})
 
+#choose a race and class at random
+random_race = random.choice(list(race_list))
 random_class = random.choice(list(class_list))
-print(random_class)
+print(random_race, random_class)
+
+#get details about race
+race_details = requests.get("https://www.dnd5eapi.co"+race_list[random_race])
+race_detail_result = json.loads(race_details.text)
+print(race_detail_result['subraces'])
+
+#get details about class
+class_details = requests.get("https://www.dnd5eapi.co"+class_list[random_class])
+class_detail_result = json.loads(class_details.text)
+print(class_detail_result['subclasses'])
