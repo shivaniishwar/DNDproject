@@ -28,9 +28,21 @@ print(random_race, random_class)
 #get details about race
 race_details = requests.get("https://www.dnd5eapi.co"+race_list[random_race])
 race_detail_result = json.loads(race_details.text)
-print(race_detail_result['subraces'])
+
+#get subrace
+if race_detail_result['subraces'] != []:
+    subrace = random.choice(race_detail_result['subraces'])
+    print("Sub-race:",subrace['name'])
+else:
+    print("No sub-race")
 
 #get details about class
 class_details = requests.get("https://www.dnd5eapi.co"+class_list[random_class])
 class_detail_result = json.loads(class_details.text)
-print(class_detail_result['subclasses'])
+
+#get subclass
+if class_detail_result['subclasses'] != []:
+    subclass = random.choice(class_detail_result['subclasses'])
+    print("Sub-class:",subclass['name'])
+else:
+    print("No sub-class")
