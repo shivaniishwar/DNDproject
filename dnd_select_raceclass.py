@@ -1,4 +1,4 @@
-import requests,json, random
+import requests,json,random
 
 #list races
 races = requests.get("https://www.dnd5eapi.co/api/races/")
