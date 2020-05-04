@@ -26,5 +26,5 @@ class_profs = random.sample(class_result['proficiency_choices'][0]['from'],choic
 for item in class_profs:
     proficiencies.append(item)
 
-for item in proficiencies:
-    print(item['name'])
+with open ("random_proficiencies.json","w") as proficiencies_file:
+    json.dump(proficiencies,proficiencies_file)
