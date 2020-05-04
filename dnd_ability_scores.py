@@ -31,5 +31,32 @@ for i in range(6):
     score = scores[i]
     ability_scores.update({name:score})
 
+#add in bonuses
+rc = open("random_raceclass.json")
+raceclass = json.load(rc)
+
+bonus_get = requests.get(raceclass['race_url'])
+bonuses_1 = json.loads(bonus_get.text)
+
+for item in bonuses_1['ability_bonuses']:
+    name = item['name'].lower()
+    add = item['bonus']
+    for score in ability_scores:
+        if score == name:
+            ability_scores[score] = ability_scores[score] + add
+
+try:
+    bonus_sub = requests.get(raceclass['subrace_url'])
+    bonuses_2 = json.loads(bonus_sub.text)
+
+    for item in bonuses_2['ability_bonuses']:
+        name = item['name'].lower()
+        add = item['bonus']
+        for score in ability_scores:
+            if score == name:
+                ability_scores[score] = ability_scores[score] + add
+except:
+    pass
+
 with open ("ability_scores.json","w") as score_file:
     json.dump(ability_scores,score_file)
