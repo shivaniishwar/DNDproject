@@ -30,3 +30,6 @@ for i in range(6):
     name = ability_names[i]
     score = scores[i]
     ability_scores.update({name:score})
+
+with open ("ability_scores.json","w") as score_file:
+    json.dump(ability_scores,score_file)
