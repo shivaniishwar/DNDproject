@@ -13,4 +13,4 @@ This project consists of 7 Python scripts and ultimately results in one JSON fil
   e. Run "dnd_spells.py"
   f. Run "dnd_extra_stuff.py"
   g. Run "dnd_all_together.py"
- After all these steps, the final character will be in "character.json"; all other JSON files can be deleted.
+ After all these steps, the final character will be in "character.json"; all other JSON files can be deleted at this point without losing any information.
