@@ -1,6 +1,6 @@
 import requests,json,random
 
-#list races
+#list all races
 races = requests.get("https://www.dnd5eapi.co/api/races/")
 race_result = json.loads(races.text)
 
@@ -10,7 +10,7 @@ for row in race_result['results']:
     url = row['url']
     race_list.update({name:url})
 
-#list classes
+#list all classes
 classes = requests.get("https://www.dnd5eapi.co/api/classes/")
 class_result = json.loads(classes.text)
 
@@ -54,5 +54,6 @@ if class_detail_result['subclasses'] != []:
 else:
     pass
 
+#dump to file
 with open("random_raceclass.json","w") as raceclass_file:
     json.dump(raceclass,raceclass_file)

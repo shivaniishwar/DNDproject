@@ -6,6 +6,7 @@ raceclass = json.load(rc)
 
 char_class = raceclass['class_name']
 
+#check for spellcasting ability
 spell_check = requests.get('https://www.dnd5eapi.co/api/spellcasting')
 sc_json = json.loads(spell_check.text)
 
@@ -35,8 +36,8 @@ if spellcasting == True:
     spell_attack = a_mods[ability] + prof['Proficiency Bonus']
     spell_dc = 8 + a_mods[ability] + prof['Proficiency Bonus']
 
-#number of spells: this is NOT included in the API!
-#... so i manually transcribed it from the long text segments ^^"
+#number of spells: this is NOT included as a unique value in the API!
+#... so i manually transcribed it from the "description" parts of the API ^^"
 if char_class == "Bard":
     cantrips = 2
     spells = 4
@@ -108,5 +109,6 @@ if spellcasting == True:
 else:
     spell_info = {"Spells":"No Spells Known"}
 
+#dump spellcasting info to file
 with open("spellcasting_info.json","w") as spellfile:
     json.dump(spell_info,spellfile)

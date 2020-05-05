@@ -1,6 +1,6 @@
 import json,random
 
-#okay, all the data exists! time to put it all together!
+#all the data exists in various json files now. time to put it all together!
 
 #open our many json files
 r_c = open("random_raceclass.json")
