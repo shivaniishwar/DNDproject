@@ -79,6 +79,8 @@ except:
     pass
 
 for item in traits_initial:
+    if traits_initial[item] == "/api/traits/internal-legacy":
+        traits_initial[item] = "/api/traits/infernal-legacy"
     trait_get = requests.get("https://dnd5eapi.co"+traits_initial[item])
     trait_info = json.loads(trait_get.text)
     name = item
