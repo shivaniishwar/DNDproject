@@ -4,8 +4,6 @@ import requests,json,random
 rc = open("random_raceclass.json")
 raceclass = json.load(rc)
 
-print(raceclass)
-
 #initialize list of proficiencies
 proficiencies = []
 

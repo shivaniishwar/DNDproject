@@ -23,7 +23,6 @@ for row in class_result['results']:
 #choose a race and class at random
 random_race = random.choice(list(race_list))
 random_class = random.choice(list(class_list))
-print(random_race, random_class)
 
 raceclass = {}
 raceclass['race_name'] = random_race
@@ -38,11 +37,10 @@ race_detail_result = json.loads(race_details.text)
 #get subrace
 if race_detail_result['subraces'] != []:
     subrace = random.choice(race_detail_result['subraces'])
-    print("Sub-race:",subrace['name'])
     raceclass['subrace_name'] = subrace['name']
     raceclass['subrace_url'] = "https://www.dnd5eapi.co"+subrace['url']
 else:
-    print("No sub-race")
+    pass
 
 #get details about class
 class_details = requests.get("https://www.dnd5eapi.co"+class_list[random_class])
@@ -51,11 +49,10 @@ class_detail_result = json.loads(class_details.text)
 #get subclass
 if class_detail_result['subclasses'] != []:
     subclass = random.choice(class_detail_result['subclasses'])
-    print("Sub-class:",subclass['name'])
     raceclass['subclass_name'] = subclass['name']
     raceclass['subclass_url'] = "https://www.dnd5eapi.co"+subclass['url']
 else:
-    print("No sub-class")
+    pass
 
 with open("random_raceclass.json","w") as raceclass_file:
     json.dump(raceclass,raceclass_file)

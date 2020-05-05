@@ -34,9 +34,6 @@ if spellcasting == True:
     prof = json.load(p)
     spell_attack = a_mods[ability] + prof['Proficiency Bonus']
     spell_dc = 8 + a_mods[ability] + prof['Proficiency Bonus']
-    spell_mods = {'Attack': spell_attack,'DC': spell_dc}
-    with open("spell_mods.json","w") as mod_file:
-        json.dump(spell_mods,mod_file)
 
 #number of spells: this is NOT included in the API!
 #... so i manually transcribed it from the long text segments ^^"
@@ -108,5 +105,8 @@ if spellcasting == True:
                   "Spell Attack Bonus":spell_attack,
                   "Spell DC":spell_dc
                  }
-    with open("spellcasting_info.json","w") as spellfile:
-        json.dump(spell_info,spellfile)
+else:
+    spell_info = {"Spells":"No Spells Known"}
+
+with open("spellcasting_info.json","w") as spellfile:
+    json.dump(spell_info,spellfile)

@@ -57,18 +57,8 @@ speed_string = str(scores['Speed'])+" feet per round"
 character.update({"SPEED":speed_string})
 
 character.update({"ARMOR CLASS":scores['Armor Class']})
-
-if scores['Initiative'] <= 0:
-    init_string = str(scores['Initiative'])
-else:
-    init_string = "+"+str(scores['Initiative'])
-character.update({"INITIATIVE BONUS":init_string})
-
-if scores['Proficiency Bonus'] <= 0:
-    prof_string = str(scores['Proficiency Bonus'])
-else:
-    prof_string = "+"+str(scores['Proficiency Bonus'])
-character.update({"PROFICIENCY BONUS":prof_string})
+character.update({"INITIATIVE BONUS":scores['Initiative']})
+character.update({"PROFICIENCY BONUS":scores['Proficiency Bonus']})
 character.update({"HIT POINTS":scores['Hit Points']})
 character.update({"HIT DICE":scores['Hit Dice']})
 
@@ -102,4 +92,4 @@ character.update({"EQUIPMENT":equipment})
 
 #write to a new json file
 with open("character.json","w") as char_file:
-    json.dump(character,char_file)
+    json.dump(character,char_file,indent=4)
