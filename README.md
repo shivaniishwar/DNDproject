@@ -1,7 +1,9 @@
 # DNDproject
 a project using Python programming to create a 5th Edition Dungeons &amp; Dragons character generator.
 
-This project consists of 7 Python scripts and ultimately results in one JSON file containing all the information for a D&D character. There are two ways of executing this process.
+This project consists of 7 Python scripts and ultimately results in one JSON file containing all the information for a D&D character. More details about the process of creating this process, plus example results, can be found at https://sites.google.com/pratt.edu/dndpcgenerator/.
+
+There are two ways of executing this process.
 
 1) Use the shell script! "dnd_run_everything.sh" is a shell script that works in Terminal (command line for Mac) and will run all the Python scripts in sequence, delete extra JSON files, and open the final character JSON file in Atom.
 
